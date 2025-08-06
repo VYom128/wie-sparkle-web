@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import AnimatedSection from './AnimatedSection';
+import HorizontalScrollMembers from './HorizontalScrollMembers';
 
 const MembersSection = () => {
-  const [selectedMember, setSelectedMember] = useState<number | null>(null);
 
   // Mock data - in real app this would come from an API
   const teamLeads = [
@@ -78,77 +77,9 @@ const MembersSection = () => {
           </div>
         </AnimatedSection>
 
-        {/* Team Leads */}
+        {/* Horizontal Scrolling Members */}
         <AnimatedSection>
-          <div className="mb-20">
-            <h3 className="text-2xl font-medium text-center mb-12 tracking-tight">Leadership Team</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {teamLeads.map((lead, index) => (
-                <div
-                  key={lead.id}
-                  className="group cursor-pointer"
-                  onClick={() => setSelectedMember(selectedMember === lead.id ? null : lead.id)}
-                >
-                  <div className="glass-card rounded-2xl overflow-hidden transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-primary/20">
-                    <div className="relative">
-                      <img
-                        src={lead.image}
-                        alt={lead.name}
-                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <h4 className="text-xl font-medium text-foreground mb-1 tracking-tight">{lead.name}</h4>
-                        <p className="text-primary font-medium text-sm">{lead.role}</p>
-                      </div>
-                    </div>
-                    
-                    {/* Expandable description */}
-                    <div className={`transition-all duration-500 overflow-hidden ${
-                      selectedMember === lead.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
-                    }`}>
-                      <div className="p-6 pt-4">
-                        <p className="text-foreground/80 text-sm font-light leading-relaxed">
-                          {lead.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Team Members */}
-        <AnimatedSection>
-          <div>
-            <h3 className="text-2xl font-medium text-center mb-12 tracking-tight">Team Members</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
-              {members.map((member, index) => (
-                <div
-                  key={member.id}
-                  className="group cursor-pointer"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="glass-card rounded-xl overflow-hidden transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-secondary/20">
-                    <div className="relative">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <h5 className="text-sm font-medium text-foreground mb-1 tracking-tight">{member.name}</h5>
-                        <p className="text-primary font-medium text-xs">{member.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <HorizontalScrollMembers teamLeads={teamLeads} members={members} />
         </AnimatedSection>
       </div>
     </section>

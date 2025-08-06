@@ -100,9 +100,12 @@ const EventsSection = () => {
                   </p>
 
                   <div className="mt-6 pt-4 border-t border-glass-border/20">
-                    <button className="text-primary hover:text-primary-glow font-medium text-sm transition-colors duration-300">
+                    <a 
+                      href={`/events/${event.id}`}
+                      className="text-primary hover:text-primary-glow font-medium text-sm transition-colors duration-300"
+                    >
                       Learn More →
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -110,22 +113,6 @@ const EventsSection = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <AnimatedSection>
-          <div className="mt-16 text-center">
-            <div className="glass-card rounded-2xl p-8 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-medium mb-4 tracking-tight">
-                Don't Miss Out!
-              </h3>
-              <p className="text-foreground/70 font-light mb-6">
-                Stay updated with our latest events and opportunities
-              </p>
-              <button className="neomorphic-button px-8 py-3 text-foreground hover:text-primary transition-colors duration-300">
-                Subscribe to Updates
-              </button>
-            </div>
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );
