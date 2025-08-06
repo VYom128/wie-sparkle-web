@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 
@@ -17,6 +18,7 @@ interface HorizontalScrollMembersProps {
 const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembersProps) => {
   const [selectedMember, setSelectedMember] = useState<number | null>(null);
   const [isScrollingPaused, setIsScrollingPaused] = useState(false);
+  const [pausedCardId, setPausedCardId] = useState<number | null>(null);
   const leadsContainerRef = useRef<HTMLDivElement>(null);
   const membersContainerRef = useRef<HTMLDivElement>(null);
   const membersScrollRef = useRef<HTMLDivElement>(null);
@@ -72,32 +74,60 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
           );
         };
 
+        // Function to pause at a specific card
+        const pauseAtCard = (cardId: number) => {
+          const cardIndex = members.findIndex(member => member.id === cardId);
+          if (cardIndex === -1) return;
+
+          if (scrollTween.current) {
+            scrollTween.current.kill();
+          }
+
+          // Calculate the position to center the clicked card
+          const targetX = -(cardIndex * cardWidth);
+          
+          gsap.to(scrollContainer, {
+            x: targetX,
+            duration: 0.8,
+            ease: "power2.out",
+            onComplete: () => {
+              currentProgress.current = cardIndex / members.length;
+            }
+          });
+        };
+
+        // Handle member card clicks
+        const handleMemberCardClick = (e: Event, memberId: number) => {
+          e.stopPropagation();
+          
+          if (pausedCardId === memberId && isScrollingPaused) {
+            // Resume from current position
+            setIsScrollingPaused(false);
+            setPausedCardId(null);
+            createInfiniteScroll(currentProgress.current);
+          } else {
+            // Pause at this card
+            setIsScrollingPaused(true);
+            setPausedCardId(memberId);
+            pauseAtCard(memberId);
+          }
+        };
+
+        // Add click listeners to member cards
+        const memberCards = scrollContainer.querySelectorAll('.member-card');
+        memberCards.forEach((card, index) => {
+          const memberId = members[index % members.length].id;
+          const clickHandler = (e: Event) => handleMemberCardClick(e, memberId);
+          card.addEventListener('click', clickHandler);
+          
+          // Store the handler for cleanup
+          (card as any)._clickHandler = clickHandler;
+        });
+
         // Start animation if not paused
         if (!isScrollingPaused) {
           createInfiniteScroll();
         }
-
-        // Handle click to pause/resume
-        const handleClick = () => {
-          setIsScrollingPaused(prev => {
-            const newPaused = !prev;
-            
-            if (newPaused) {
-              // Pause animation
-              if (scrollTween.current) {
-                scrollTween.current.pause();
-              }
-            } else {
-              // Resume animation from current progress
-              createInfiniteScroll(currentProgress.current);
-            }
-            
-            return newPaused;
-          });
-        };
-
-        // Add click listener
-        container.addEventListener('click', handleClick);
 
         // Handle touch/mobile swiping
         let startX = 0;
@@ -132,7 +162,7 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
           
           isDragging = false;
           
-          // Resume auto-scroll after a delay
+          // Resume auto-scroll after a delay if not manually paused
           setTimeout(() => {
             if (!isScrollingPaused && scrollTween.current) {
               scrollTween.current.resume();
@@ -152,15 +182,26 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
       return () => {
         clearTimeout(timer);
         const container = membersContainerRef.current;
+        const scrollContainer = membersScrollRef.current;
+        
         if (container) {
-          // Remove all event listeners
-          container.removeEventListener('click', () => {});
+          // Remove touch event listeners
           container.removeEventListener('touchstart', () => {});
           container.removeEventListener('touchmove', () => {});
           container.removeEventListener('touchend', () => {});
           container.removeEventListener('mousedown', () => {});
           container.removeEventListener('mousemove', () => {});
           container.removeEventListener('mouseup', () => {});
+        }
+
+        if (scrollContainer) {
+          // Remove click listeners from member cards
+          const memberCards = scrollContainer.querySelectorAll('.member-card');
+          memberCards.forEach((card) => {
+            if ((card as any)._clickHandler) {
+              card.removeEventListener('click', (card as any)._clickHandler);
+            }
+          });
         }
         
         if (scrollTween.current) {
@@ -172,7 +213,7 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
     const cleanup = setupContinuousScroll();
 
     return cleanup;
-  }, [members.length, isScrollingPaused]);
+  }, [members.length, isScrollingPaused, pausedCardId]);
 
   return (
     <div className="space-y-20">
@@ -221,7 +262,7 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
         <h3 className="text-2xl font-medium text-center mb-12 tracking-tight">Team Members</h3>
         <div 
           ref={membersContainerRef}
-          className="relative overflow-hidden cursor-pointer select-none"
+          className="relative overflow-hidden select-none"
           style={{ height: '200px' }}
         >
           <div 
@@ -235,9 +276,11 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
             {duplicatedMembers.current.map((member, index) => (
               <div
                 key={`${member.id}-${index}`}
-                className="member-card flex-none w-48 group"
+                className="member-card flex-none w-48 group cursor-pointer"
               >
-                <div className="glass-card rounded-xl overflow-hidden transition-all duration-700 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-primary/30">
+                <div className={`glass-card rounded-xl overflow-hidden transition-all duration-700 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-primary/30 ${
+                  pausedCardId === member.id ? 'ring-2 ring-primary/50' : ''
+                }`}>
                   <div className="relative">
                     <img
                       src={member.image}
