@@ -25,10 +25,10 @@
     --primary-foreground: 300 15% 95%;
     --primary-glow: 285 100% 75%;
 
-    /* Secondary accent - Deep purple blue */
-    --secondary: 250 100% 65%;
+    /* Secondary accent - Deep blue purple */
+    --secondary: 240 100% 65%;
     --secondary-foreground: 300 15% 95%;
-    --secondary-glow: 250 100% 70%;
+    --secondary-glow: 240 100% 70%;
 
     /* Tertiary accent - Magenta highlights */
     --accent: 320 100% 75%;

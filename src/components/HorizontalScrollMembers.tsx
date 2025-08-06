@@ -22,6 +22,7 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
   const membersScrollRef = useRef<HTMLDivElement>(null);
   const scrollTween = useRef<gsap.core.Tween | null>(null);
   const duplicatedMembers = useRef<Member[]>([]);
+  const currentProgress = useRef<number>(0);
 
   useEffect(() => {
     // Duplicate members for seamless looping (minimum 3 sets for smooth infinite scroll)
@@ -45,20 +46,27 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
         const totalOriginalWidth = cardWidth * members.length;
         
         // Create seamless infinite scroll
-        const createInfiniteScroll = () => {
+        const createInfiniteScroll = (fromProgress = 0) => {
           if (scrollTween.current) {
             scrollTween.current.kill();
           }
 
+          const startX = -totalOriginalWidth * fromProgress;
+          
           scrollTween.current = gsap.fromTo(scrollContainer, 
-            { x: 0 },
+            { x: startX },
             {
-              x: -totalOriginalWidth,
-              duration: members.length * 3, // 3 seconds per card for luxurious pace
+              x: startX - totalOriginalWidth,
+              duration: members.length * 3 * (1 - fromProgress), // Adjust duration based on progress
               ease: "none",
               repeat: -1,
               modifiers: {
                 x: gsap.utils.unitize(gsap.utils.wrap(-totalOriginalWidth, 0), "px")
+              },
+              onUpdate: () => {
+                if (scrollTween.current) {
+                  currentProgress.current = scrollTween.current.progress();
+                }
               }
             }
           );
@@ -80,12 +88,8 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
                 scrollTween.current.pause();
               }
             } else {
-              // Resume animation
-              if (scrollTween.current) {
-                scrollTween.current.resume();
-              } else {
-                createInfiniteScroll();
-              }
+              // Resume animation from current progress
+              createInfiniteScroll(currentProgress.current);
             }
             
             return newPaused;
@@ -215,9 +219,6 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
       {/* Team Members */}
       <div>
         <h3 className="text-2xl font-medium text-center mb-12 tracking-tight">Team Members</h3>
-        <p className="text-center text-muted-foreground mb-6 text-sm">
-          {isScrollingPaused ? 'Click again to resume scrolling' : 'Click to pause scrolling'}
-        </p>
         <div 
           ref={membersContainerRef}
           className="relative overflow-hidden cursor-pointer select-none"
