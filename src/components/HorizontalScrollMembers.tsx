@@ -42,21 +42,23 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
 
         isScrolling = true;
         
-        // Create smooth auto-scroll animation
-        scrollTween = gsap.to(scrollContainer, {
-          scrollLeft: maxScroll,
-          duration: maxScroll / 100, // Adjust speed as needed
-          ease: "none",
-          onComplete: () => {
-            // Bounce back to start
-            gsap.to(scrollContainer, {
-              scrollLeft: 0,
-              duration: maxScroll / 100,
-              ease: "none",
-              delay: 0.5
-            });
-          }
-        });
+        // Create continuous circular scroll animation
+        const createContinuousScroll = () => {
+          scrollTween = gsap.to(scrollContainer, {
+            scrollLeft: maxScroll,
+            duration: maxScroll / 50, // Faster speed
+            ease: "none",
+            onComplete: () => {
+              // Reset to start and continue seamlessly
+              gsap.set(scrollContainer, { scrollLeft: 0 });
+              if (isScrolling) {
+                createContinuousScroll(); // Continue the loop
+              }
+            }
+          });
+        };
+        
+        createContinuousScroll();
       };
 
       const handleMouseLeave = () => {
@@ -78,11 +80,10 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
       };
     };
 
-    const leadsCleanup = setupHorizontalScroll(leadsContainerRef, leadsScrollRef);
+    // Only apply horizontal scroll to members, not leadership team
     const membersCleanup = setupHorizontalScroll(membersContainerRef, membersScrollRef);
 
     return () => {
-      leadsCleanup?.();
       membersCleanup?.();
     };
   }, []);
@@ -92,52 +93,40 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
       {/* Team Leads */}
       <div>
         <h3 className="text-2xl font-medium text-center mb-12 tracking-tight">Leadership Team</h3>
-        <div 
-          ref={leadsContainerRef}
-          className="relative overflow-hidden"
-        >
-          <div 
-            ref={leadsScrollRef}
-            className="flex space-x-8 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
-            style={{ 
-              scrollBehavior: 'smooth',
-              WebkitOverflowScrolling: 'touch'
-            }}
-          >
-            {teamLeads.map((lead, index) => (
-              <div
-                key={lead.id}
-                className="flex-none w-80 group cursor-pointer snap-start"
-                onClick={() => setSelectedMember(selectedMember === lead.id ? null : lead.id)}
-              >
-                <div className="glass-card rounded-2xl overflow-hidden transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-primary/20">
-                  <div className="relative">
-                    <img
-                      src={lead.image}
-                      alt={lead.name}
-                      className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h4 className="text-xl font-medium text-foreground mb-1 tracking-tight">{lead.name}</h4>
-                      <p className="text-primary font-medium text-sm">{lead.role}</p>
-                    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
+          {teamLeads.map((lead, index) => (
+            <div
+              key={lead.id}
+              className="group cursor-pointer"
+              onClick={() => setSelectedMember(selectedMember === lead.id ? null : lead.id)}
+            >
+              <div className="glass-card rounded-2xl overflow-hidden transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-primary/20">
+                <div className="relative">
+                  <img
+                    src={lead.image}
+                    alt={lead.name}
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h4 className="text-xl font-medium text-foreground mb-1 tracking-tight">{lead.name}</h4>
+                    <p className="text-primary font-medium text-sm">{lead.role}</p>
                   </div>
-                  
-                  {/* Expandable description */}
-                  <div className={`transition-all duration-500 overflow-hidden ${
-                    selectedMember === lead.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
-                  }`}>
-                    <div className="p-6 pt-4">
-                      <p className="text-foreground/80 text-sm font-light leading-relaxed">
-                        {lead.description}
-                      </p>
-                    </div>
+                </div>
+                
+                {/* Expandable description */}
+                <div className={`transition-all duration-500 overflow-hidden ${
+                  selectedMember === lead.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
+                  <div className="p-6 pt-4">
+                    <p className="text-foreground/80 text-sm font-light leading-relaxed">
+                      {lead.description}
+                    </p>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
 
