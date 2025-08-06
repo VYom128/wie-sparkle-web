@@ -6,41 +6,41 @@
 
 @layer base {
   :root {
-    /* Original color scheme - Dark with teal accents */
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Luxurious purple theme inspired by reference image */
+    --background: 260 50% 4%;
+    --foreground: 300 20% 95%;
 
     /* Glass morphism card backgrounds */
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --glass: 220 20% 8%;
-    --glass-border: 220 25% 15%;
+    --card: 260 40% 8%;
+    --card-foreground: 300 15% 95%;
+    --glass: 270 35% 12%;
+    --glass-border: 280 40% 20%;
 
     /* Navigation and UI elements */
-    --nav-background: 222.2 84% 4.9%;
-    --nav-blur: 220 25% 8%;
+    --nav-background: 260 45% 6%;
+    --nav-blur: 270 40% 10%;
 
-    /* Primary accent - Bright teal/cyan */
-    --primary: 199 95% 74%;
-    --primary-foreground: 210 20% 98%;
-    --primary-glow: 199 95% 80%;
+    /* Primary accent - Bright purple/magenta */
+    --primary: 280 100% 70%;
+    --primary-foreground: 300 15% 95%;
+    --primary-glow: 285 100% 75%;
 
-    /* Secondary accent - Dark secondary */
-    --secondary: 210 40% 98%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --secondary-glow: 210 40% 95%;
+    /* Secondary accent - Deep purple blue */
+    --secondary: 250 100% 65%;
+    --secondary-foreground: 300 15% 95%;
+    --secondary-glow: 250 100% 70%;
 
-    /* Tertiary accent - Muted accent */
-    --accent: 210 40% 98%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --accent-glow: 210 40% 95%;
+    /* Tertiary accent - Magenta highlights */
+    --accent: 320 100% 75%;
+    --accent-foreground: 260 50% 4%;
+    --accent-glow: 320 100% 80%;
 
     /* Muted text and borders */
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 199 95% 74%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 15% 65%;
+    --border: 220 25% 20%;
+    --input: 220 25% 15%;
+    --ring: 285 100% 65%;
 
     /* Destructive */
     --destructive: 0 85% 60%;
@@ -52,10 +52,10 @@
 
     --radius: 1rem;
 
-    /* Custom gradients - Original teal theme */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+    /* Custom gradients - Luxurious purple theme */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%);
-    --gradient-background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(220 25% 6%) 50%, hsl(215 30% 4%) 100%);
+    --gradient-background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(280 60% 8%) 50%, hsl(250 50% 6%) 100%);
     --gradient-card: linear-gradient(135deg, hsl(var(--glass) / 0.5) 0%, hsl(var(--glass) / 0.1) 100%);
 
     /* Shadows and glows */

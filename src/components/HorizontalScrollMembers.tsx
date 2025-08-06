@@ -16,74 +16,159 @@ interface HorizontalScrollMembersProps {
 
 const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembersProps) => {
   const [selectedMember, setSelectedMember] = useState<number | null>(null);
+  const [isScrollingPaused, setIsScrollingPaused] = useState(false);
   const leadsContainerRef = useRef<HTMLDivElement>(null);
   const membersContainerRef = useRef<HTMLDivElement>(null);
-  const leadsScrollRef = useRef<HTMLDivElement>(null);
   const membersScrollRef = useRef<HTMLDivElement>(null);
+  const scrollTween = useRef<gsap.core.Tween | null>(null);
+  const duplicatedMembers = useRef<Member[]>([]);
 
   useEffect(() => {
-    // GSAP smooth scroll animations for desktop hover
-    const setupHorizontalScroll = (containerRef: React.RefObject<HTMLDivElement>, scrollRef: React.RefObject<HTMLDivElement>) => {
-      if (!containerRef.current || !scrollRef.current) return;
+    // Duplicate members for seamless looping (minimum 3 sets for smooth infinite scroll)
+    const minSets = Math.max(3, Math.ceil(24 / members.length)); // Ensure at least 24 cards for smooth scrolling
+    duplicatedMembers.current = Array(minSets).fill(members).flat();
+  }, [members]);
 
-      const container = containerRef.current;
-      const scrollContainer = scrollRef.current;
-      let isScrolling = false;
-      let scrollTween: gsap.core.Tween | null = null;
+  useEffect(() => {
+    const setupContinuousScroll = () => {
+      if (!membersScrollRef.current || !membersContainerRef.current) return;
 
-      const handleMouseEnter = () => {
-        if (window.innerWidth < 768) return; // Skip on mobile/tablet
-        
-        const scrollWidth = scrollContainer.scrollWidth;
-        const containerWidth = container.clientWidth;
-        const maxScroll = scrollWidth - containerWidth;
-        
-        if (maxScroll <= 0) return;
+      const scrollContainer = membersScrollRef.current;
+      const container = membersContainerRef.current;
+      
+      // Wait for images to load and get accurate measurements
+      const timer = setTimeout(() => {
+        const firstCard = scrollContainer.querySelector('.member-card') as HTMLElement;
+        if (!firstCard) return;
 
-        isScrolling = true;
+        const cardWidth = firstCard.offsetWidth + 24; // Include gap
+        const totalOriginalWidth = cardWidth * members.length;
         
-        // Create smooth continuous scroll animation
-        const createContinuousScroll = () => {
-          scrollTween = gsap.to(scrollContainer, {
-            scrollLeft: maxScroll,
-            duration: maxScroll / 30, // Much faster, smoother speed
-            ease: "none",
-            repeat: -1, // Infinite repeat
-            modifiers: {
-              scrollLeft: gsap.utils.wrap(0, maxScroll + 1)
+        // Create seamless infinite scroll
+        const createInfiniteScroll = () => {
+          if (scrollTween.current) {
+            scrollTween.current.kill();
+          }
+
+          scrollTween.current = gsap.fromTo(scrollContainer, 
+            { x: 0 },
+            {
+              x: -totalOriginalWidth,
+              duration: members.length * 3, // 3 seconds per card for luxurious pace
+              ease: "none",
+              repeat: -1,
+              modifiers: {
+                x: gsap.utils.unitize(gsap.utils.wrap(-totalOriginalWidth, 0), "px")
+              }
             }
+          );
+        };
+
+        // Start animation if not paused
+        if (!isScrollingPaused) {
+          createInfiniteScroll();
+        }
+
+        // Handle click to pause/resume
+        const handleClick = () => {
+          setIsScrollingPaused(prev => {
+            const newPaused = !prev;
+            
+            if (newPaused) {
+              // Pause animation
+              if (scrollTween.current) {
+                scrollTween.current.pause();
+              }
+            } else {
+              // Resume animation
+              if (scrollTween.current) {
+                scrollTween.current.resume();
+              } else {
+                createInfiniteScroll();
+              }
+            }
+            
+            return newPaused;
           });
         };
-        
-        createContinuousScroll();
-      };
 
-      const handleMouseLeave = () => {
-        if (scrollTween) {
-          scrollTween.kill();
-        }
-        isScrolling = false;
-      };
+        // Add click listener
+        container.addEventListener('click', handleClick);
 
-      container.addEventListener('mouseenter', handleMouseEnter);
-      container.addEventListener('mouseleave', handleMouseLeave);
+        // Handle touch/mobile swiping
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
 
+        const handleTouchStart = (e: TouchEvent | MouseEvent) => {
+          if (window.innerWidth >= 768) return; // Only on mobile
+          
+          isDragging = true;
+          startX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+          
+          // Pause auto-scroll on mobile interaction
+          if (scrollTween.current) {
+            scrollTween.current.pause();
+          }
+        };
+
+        const handleTouchMove = (e: TouchEvent | MouseEvent) => {
+          if (!isDragging || window.innerWidth >= 768) return;
+          
+          e.preventDefault();
+          currentX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+          const deltaX = currentX - startX;
+          
+          gsap.set(scrollContainer, { x: `+=${deltaX * 0.5}` });
+          startX = currentX;
+        };
+
+        const handleTouchEnd = () => {
+          if (!isDragging || window.innerWidth >= 768) return;
+          
+          isDragging = false;
+          
+          // Resume auto-scroll after a delay
+          setTimeout(() => {
+            if (!isScrollingPaused && scrollTween.current) {
+              scrollTween.current.resume();
+            }
+          }, 2000);
+        };
+
+        // Add touch listeners for mobile
+        container.addEventListener('touchstart', handleTouchStart, { passive: false });
+        container.addEventListener('touchmove', handleTouchMove, { passive: false });
+        container.addEventListener('touchend', handleTouchEnd);
+        container.addEventListener('mousedown', handleTouchStart);
+        container.addEventListener('mousemove', handleTouchMove);
+        container.addEventListener('mouseup', handleTouchEnd);
+      }, 100);
+      
       return () => {
-        container.removeEventListener('mouseenter', handleMouseEnter);
-        container.removeEventListener('mouseleave', handleMouseLeave);
-        if (scrollTween) {
-          scrollTween.kill();
+        clearTimeout(timer);
+        const container = membersContainerRef.current;
+        if (container) {
+          // Remove all event listeners
+          container.removeEventListener('click', () => {});
+          container.removeEventListener('touchstart', () => {});
+          container.removeEventListener('touchmove', () => {});
+          container.removeEventListener('touchend', () => {});
+          container.removeEventListener('mousedown', () => {});
+          container.removeEventListener('mousemove', () => {});
+          container.removeEventListener('mouseup', () => {});
+        }
+        
+        if (scrollTween.current) {
+          scrollTween.current.kill();
         }
       };
     };
 
-    // Only apply horizontal scroll to members, not leadership team
-    const membersCleanup = setupHorizontalScroll(membersContainerRef, membersScrollRef);
+    const cleanup = setupContinuousScroll();
 
-    return () => {
-      membersCleanup?.();
-    };
-  }, []);
+    return cleanup;
+  }, [members.length, isScrollingPaused]);
 
   return (
     <div className="space-y-20">
@@ -130,32 +215,36 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
       {/* Team Members */}
       <div>
         <h3 className="text-2xl font-medium text-center mb-12 tracking-tight">Team Members</h3>
+        <p className="text-center text-muted-foreground mb-6 text-sm">
+          {isScrollingPaused ? 'Click again to resume scrolling' : 'Click to pause scrolling'}
+        </p>
         <div 
           ref={membersContainerRef}
-          className="relative overflow-hidden"
+          className="relative overflow-hidden cursor-pointer select-none"
+          style={{ height: '200px' }}
         >
           <div 
             ref={membersScrollRef}
-            className="flex space-x-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
+            className="flex space-x-6 absolute left-0 top-0"
             style={{ 
-              scrollBehavior: 'smooth',
-              WebkitOverflowScrolling: 'touch'
+              width: 'max-content',
+              willChange: 'transform'
             }}
           >
-            {members.map((member, index) => (
+            {duplicatedMembers.current.map((member, index) => (
               <div
-                key={member.id}
-                className="flex-none w-48 group cursor-pointer snap-start"
-                style={{ animationDelay: `${index * 100}ms` }}
+                key={`${member.id}-${index}`}
+                className="member-card flex-none w-48 group"
               >
-                <div className="glass-card rounded-xl overflow-hidden transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-secondary/20">
+                <div className="glass-card rounded-xl overflow-hidden transition-all duration-700 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-primary/30">
                   <div className="relative">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-40 object-cover transition-transform duration-700 group-hover:scale-110"
+                      draggable={false}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                     <div className="absolute bottom-2 left-2 right-2">
                       <h5 className="text-sm font-medium text-foreground mb-1 tracking-tight">{member.name}</h5>
                       <p className="text-primary font-medium text-xs">{member.role}</p>
