@@ -26,11 +26,13 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
   const duplicatedMembers = useRef<Member[]>([]);
   const currentProgress = useRef<number>(0);
 
+  // Create duplicated members for seamless looping
+  const minSets = Math.max(3, Math.ceil(24 / members.length)); // Ensure at least 24 cards for smooth scrolling
+  const duplicatedMembersArray = Array(minSets).fill(members).flat();
+  
   useEffect(() => {
-    // Duplicate members for seamless looping (minimum 3 sets for smooth infinite scroll)
-    const minSets = Math.max(3, Math.ceil(24 / members.length)); // Ensure at least 24 cards for smooth scrolling
-    duplicatedMembers.current = Array(minSets).fill(members).flat();
-  }, [members]);
+    duplicatedMembers.current = duplicatedMembersArray;
+  }, [duplicatedMembersArray]);
 
   useEffect(() => {
     const setupContinuousScroll = () => {
@@ -273,7 +275,7 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
               willChange: 'transform'
             }}
           >
-            {duplicatedMembers.current.map((member, index) => (
+            {duplicatedMembersArray.map((member, index) => (
               <div
                 key={`${member.id}-${index}`}
                 className="member-card flex-none w-48 group cursor-pointer"
