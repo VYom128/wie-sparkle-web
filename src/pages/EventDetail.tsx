@@ -172,20 +172,6 @@ The session covers topics including sustainable development, disaster relief eng
           </div>
         </section>
 
-        {/* CTA section */}
-        <section className="container mx-auto px-6 mb-16">
-          <div className="glass-card rounded-2xl p-8 text-center max-w-2xl mx-auto">
-            <h3 className="text-2xl font-light tracking-tight mb-4">
-              Interested in Attending?
-            </h3>
-            <p className="text-foreground/70 font-light mb-6">
-              Register now to secure your spot at this exciting event
-            </p>
-            <button className="neomorphic-button px-8 py-3 text-foreground hover:text-primary transition-colors duration-300">
-              Register Now
-            </button>
-          </div>
-        </section>
       </main>
     </div>
   );

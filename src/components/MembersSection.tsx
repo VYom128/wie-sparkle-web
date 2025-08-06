@@ -58,6 +58,48 @@ const MembersSection = () => {
       name: 'Sophia Kim',
       role: 'Design Lead',
       image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=300&h=300&fit=crop&crop=face'
+    },
+    {
+      id: 9,
+      name: 'Maya Rodriguez',
+      role: 'Research Lead',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face'
+    },
+    {
+      id: 10,
+      name: 'Anna Thompson',
+      role: 'Marketing Lead',
+      image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300&h=300&fit=crop&crop=face'
+    },
+    {
+      id: 11,
+      name: 'Sarah Williams',
+      role: 'Community Manager',
+      image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&h=300&fit=crop&crop=face'
+    },
+    {
+      id: 12,
+      name: 'Lisa Chang',
+      role: 'Workshop Coordinator',
+      image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=300&h=300&fit=crop&crop=face'
+    },
+    {
+      id: 13,
+      name: 'Emma Davis',
+      role: 'Partnership Lead',
+      image: 'https://images.unsplash.com/photo-1590086782792-42dd2350140d?w=300&h=300&fit=crop&crop=face'
+    },
+    {
+      id: 14,
+      name: 'Priya Sharma',
+      role: 'Innovation Lead',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face'
+    },
+    {
+      id: 15,
+      name: 'Jennifer Lee',
+      role: 'Social Media Manager',
+      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b647?w=300&h=300&fit=crop&crop=face'
     }
   ];
 

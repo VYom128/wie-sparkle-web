@@ -6,34 +6,34 @@
 
 @layer base {
   :root {
-    /* Primary color scheme - Dark navy/purple from reference */
-    --background: 220 25% 6%;
-    --foreground: 220 15% 95%;
+    /* Primary color scheme - Deep purple gradient from reference */
+    --background: 260 50% 4%;
+    --foreground: 300 20% 95%;
 
     /* Glass morphism card backgrounds */
-    --card: 220 20% 10%;
-    --card-foreground: 220 15% 95%;
-    --glass: 220 25% 15%;
-    --glass-border: 220 30% 25%;
+    --card: 260 40% 8%;
+    --card-foreground: 300 15% 95%;
+    --glass: 270 35% 12%;
+    --glass-border: 280 40% 20%;
 
     /* Navigation and UI elements */
-    --nav-background: 220 25% 8%;
-    --nav-blur: 220 25% 12%;
+    --nav-background: 260 45% 6%;
+    --nav-blur: 270 40% 10%;
 
-    /* Primary accent - Purple/magenta from reference */
-    --primary: 285 100% 65%;
-    --primary-foreground: 220 15% 95%;
-    --primary-glow: 285 100% 70%;
+    /* Primary accent - Bright purple from reference */
+    --primary: 280 100% 70%;
+    --primary-foreground: 300 15% 95%;
+    --primary-glow: 285 100% 75%;
 
-    /* Secondary accent - Blue from reference */
-    --secondary: 220 100% 60%;
-    --secondary-foreground: 220 15% 95%;
-    --secondary-glow: 220 100% 70%;
+    /* Secondary accent - Deep purple blue */
+    --secondary: 250 100% 65%;
+    --secondary-foreground: 300 15% 95%;
+    --secondary-glow: 250 100% 70%;
 
-    /* Tertiary accent - Cyan highlights */
-    --accent: 180 100% 70%;
-    --accent-foreground: 220 25% 6%;
-    --accent-glow: 180 100% 75%;
+    /* Tertiary accent - Magenta highlights */
+    --accent: 320 100% 75%;
+    --accent-foreground: 260 50% 4%;
+    --accent-glow: 320 100% 80%;
 
     /* Muted text and borders */
     --muted: 220 20% 15%;
@@ -52,11 +52,11 @@
 
     --radius: 1rem;
 
-    /* Custom gradients from reference */
+    /* Custom gradients from reference - Purple theme */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%);
-    --gradient-background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(220 30% 8%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(var(--glass) / 0.4) 0%, hsl(var(--glass) / 0.1) 100%);
+    --gradient-background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(280 60% 8%) 50%, hsl(250 50% 6%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(var(--glass) / 0.5) 0%, hsl(var(--glass) / 0.1) 100%);
 
     /* Shadows and glows */
     --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
