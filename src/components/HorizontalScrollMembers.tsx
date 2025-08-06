@@ -42,18 +42,15 @@ const HorizontalScrollMembers = ({ teamLeads, members }: HorizontalScrollMembers
 
         isScrolling = true;
         
-        // Create continuous circular scroll animation
+        // Create smooth continuous scroll animation
         const createContinuousScroll = () => {
           scrollTween = gsap.to(scrollContainer, {
             scrollLeft: maxScroll,
-            duration: maxScroll / 50, // Faster speed
+            duration: maxScroll / 30, // Much faster, smoother speed
             ease: "none",
-            onComplete: () => {
-              // Reset to start and continue seamlessly
-              gsap.set(scrollContainer, { scrollLeft: 0 });
-              if (isScrolling) {
-                createContinuousScroll(); // Continue the loop
-              }
+            repeat: -1, // Infinite repeat
+            modifiers: {
+              scrollLeft: gsap.utils.wrap(0, maxScroll + 1)
             }
           });
         };
