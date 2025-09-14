@@ -2,25 +2,26 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CalendarBlank, Clock, MapPin } from 'phosphor-react';
 import Navigation from '@/components/Navigation';
 
-import WieCongressMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/wie congress main pic.jpg';
-import WieCongress1 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/wie c.jpg';
-import WieCongress2 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/wie c1.jpg';
-import WieCongress3 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/wie c3.jpg';
+import WieCongressMain from "/images/wie website event pics/wie congress main pic.jpg";
+import WieCongress1 from "/images/wie website event pics/wie c.jpg";
+import WieCongress2 from "/images/wie website event pics/wie c1.jpg";
+import WieCongress3 from "/images/wie website event pics/wie c3.jpg";
 
-import InaugMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/inaug main.jpg';
-import Inaug1 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/inaug 2.jpg';
-import Inaug2 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/inaug 3.jpg';
-import Inaug3 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/inaug 4.jpg';
+import InaugMain from "/images/wie website event pics/inaug main.jpg";
+import Inaug1 from "/images/wie website event pics/inaug 2.jpg";
+import Inaug2 from "/images/wie website event pics/inaug 3.jpg";
+import Inaug3 from "/images/wie website event pics/inaug 4.jpg";
 
-import JobQuestMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/jobquest main pic.jpg';
-import JobQuest1 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/jobquest 1.jpg';
-import JobQuest2 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/jobquest 1.jpg';
-import JobQuest3 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/jobquest 3.png';
+import JobQuestMain from "/images/wie website event pics/jobquest main pic.jpg";
+import JobQuest1 from "/images/wie website event pics/jobquest 1.jpg";
+import JobQuest2 from "/images/wie website event pics/job quest 2.jpg";
+import JobQuest3 from "/images/wie website event pics/jobquest 3.png";
 
-import InnovateHerMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/InnovateHerMian.jpg';
-import InnovateHer1 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/InnovateHer.jpg';
-import InnovateHer2 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/InnovateHer2.jpg';
-import InnovateHer3 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/InnovateHer3.jpg';
+import InnovateHerMain from "/images/wie website event pics/InnovateHerMian.jpg";
+import InnovateHer1 from "/images/wie website event pics/InnovateHer.jpg";
+import InnovateHer2 from "/images/wie website event pics/InnovateHer2.jpg";
+import InnovateHer3 from "/images/wie website event pics/InnovateHer3.jpg";
+
 
 
 const EventDetail = () => {

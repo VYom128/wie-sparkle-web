@@ -1,9 +1,9 @@
 import AnimatedSection from './AnimatedSection';
 import { CalendarBlank, MapPin, Clock } from 'phosphor-react';
-import WieCongressMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/wie congress main pic.jpg';
-import InaugMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/inaug main.jpg';
-import JobQuestMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/jobquest main pic.jpg';
-import InnovateHerMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/InnovateHerMian.jpg';
+import WieCongressMain from '/images/wie website event pics/wie congress main pic.jpg';
+import InaugMain from '/images/wie website event pics/inaug main.jpg';
+import JobQuestMain from '/images/wie website event pics/jobquest main pic.jpg';
+import InnovateHerMain from '/images/wie website event pics/InnovateHerMian.jpg';
 const EventsSection = () => {
   const events = [
     {

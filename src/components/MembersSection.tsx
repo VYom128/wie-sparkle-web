@@ -1,28 +1,29 @@
 import AnimatedSection from "./AnimatedSection";
 import HorizontalScrollMembers from "./HorizontalScrollMembers";
-import AnushaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/anusha.jpg";
-import RakshithImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/rakshith mtt.jpg";
-import SanjanaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/Sanjana.jpg";
-import GagandeepImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/Gagandeep.jpg";
-import KeerthiImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/keerthi mtt.jpg";
-import TripuraImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/tsr mtt.jpg";
-import BindhuImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/bindu mtt.jpg";
-import SahitiImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/sahiti mtt.jpg";
-import HarshithaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/harshitha mtt.jpg";
-import AbhishekImage from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/abhishek.jpg'
+import AnushaImage from "/images/meet the team pics individual/meet the team pics individual/anusha.jpg";
+import RakshithImage from "/images/meet the team pics individual/meet the team pics individual/rakshith mtt.jpg";
+import SanjanaImage from "/images/meet the team pics individual/meet the team pics individual/Sanjana.jpg";
+import GagandeepImage from "/images/meet the team pics individual/meet the team pics individual/Gagandeep.jpg";
+import KeerthiImage from "/images/meet the team pics individual/meet the team pics individual/keerthi mtt.jpg";
+import TripuraImage from "/images/meet the team pics individual/meet the team pics individual/tsr mtt.jpg";
+import BindhuImage from "/images/meet the team pics individual/meet the team pics individual/bindu mtt.jpg";
+import SahitiImage from "/images/meet the team pics individual/meet the team pics individual/sahiti mtt.jpg";
+import HarshithaImage from "/images/meet the team pics individual/meet the team pics individual/harshitha mtt.jpg";
+import AbhishekImage from "/images/meet the team pics individual/meet the team pics individual/abhishek.jpg";
 
-// Import statements for team members
-import LaasyaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/laasya mtt.jpg";
-import TharunImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/tarun.jpg";
-import SnehaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/sneha mtt.jpg";
-import SupriyaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/supriya.jpg";
-import BhargavImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/bhargav.jpg";
-import VyomakeshImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/vyom.jpg";
-import ShashankImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/shashank.jpg";
-import AdityaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/aditya.jpg";
-import SriHarshithaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/harshitha mtt.jpg";
-import SaashaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/saasha mtt.jpg";
-import VipulImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/vipul mtt.jpg";
+import LaasyaImage from "/images/meet the team pics individual/meet the team pics individual/laasya mtt.jpg";
+import TharunImage from "/images/meet the team pics individual/meet the team pics individual/tarun.jpg";
+import SnehaImage from "/images/meet the team pics individual/meet the team pics individual/sneha mtt.jpg";
+import SupriyaImage from "/images/meet the team pics individual/meet the team pics individual/supriya.jpg";
+import BhargavImage from "/images/meet the team pics individual/meet the team pics individual/bhargav.jpg";
+import VyomakeshImage from "/images/meet the team pics individual/meet the team pics individual/vyom.jpg";
+import ShashankImage from "/images/meet the team pics individual/meet the team pics individual/shashank.jpg";
+import AdityaImage from "/images/meet the team pics individual/meet the team pics individual/aditya.jpg";
+import SriHarshithaImage from "/images/meet the team pics individual/meet the team pics individual/harshitha mtt.jpg";
+import SaashaImage from "/images/meet the team pics individual/meet the team pics individual/saasha mtt.jpg";
+import VipulImage from "/images/meet the team pics individual/meet the team pics individual/vipul mtt.jpg";
+
+
 
 // ...existing code...
 const MembersSection = () => {

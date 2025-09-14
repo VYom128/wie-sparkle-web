@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { List, X } from "phosphor-react";
 // Add your logo imports here
-import leftLogo from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/src/assets/cropped_circle_image.png"; // Update path as needed
+import leftLogo from "/src/assets/cropped_circle_image.png"; // Update path as needed
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

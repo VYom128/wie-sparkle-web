@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import AnimatedSection from './AnimatedSection';
-import facultyImage from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/DurgaMam.jpg';
+import facultyImage from '/images/wie website event pics/DurgaMam.jpg';
 
 const FacultySection = () => {
   const [isHovered, setIsHovered] = useState(false);
