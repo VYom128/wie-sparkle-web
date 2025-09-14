@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import AnimatedSection from './AnimatedSection';
-import facultyImage from '@/assets/faculty-advisor.jpg';
+import facultyImage from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/DurgaMam.jpg';
 
 const FacultySection = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -42,13 +42,11 @@ const FacultySection = () => {
                   }`}>
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
                       <h3 className="text-2xl font-medium text-foreground mb-2 tracking-tight">
-                        Dr. Sarah Johnson
+                        Durga Bhavani
                       </h3>
                       <p className="text-primary font-medium mb-3">Faculty Advisor</p>
                       <div className="text-foreground/80 text-sm font-light leading-relaxed">
-                        <p className="mb-2">Ph.D. in Electrical Engineering</p>
-                        <p className="mb-2">15+ years in Academia</p>
-                        <p>Research Focus: AI & Machine Learning</p>
+                        <p>Mrs. Durga Bhavani Adla is an Assistant Professor in CSE and IEEE Region-10 Brand Ambassador, with research interests in Image Processing and Computer Vision.</p>
                       </div>
                     </div>
                   </div>

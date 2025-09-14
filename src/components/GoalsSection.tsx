@@ -6,28 +6,28 @@ const GoalsSection = () => {
     {
       id: 1,
       title: 'Empowerment',
-      description: 'Foster an inclusive environment where women in engineering can thrive, develop leadership skills, and reach their full potential.',
+      description: 'We aim to empower individuals in STEM by building confidence and leadership skills through engaging activities.',
       icon: Users,
       color: 'from-primary to-primary-glow'
     },
     {
       id: 2,
       title: 'Innovation',
-      description: 'Encourage creative thinking and innovation in engineering solutions that address real-world challenges and make a positive impact.',
+      description: 'We encourage creativity and critical thinking through hands-on projects, technical sessions, and problem-solving challenges.',
       icon: Lightbulb,
       color: 'from-secondary to-secondary-glow'
     },
     {
       id: 3,
-      title: 'Community',
-      description: 'Build a strong network of support, mentorship, and collaboration among women engineers across all disciplines and career stages.',
+      title: 'Inclusivity',
+      description: 'Our chapter welcomes everyone—regardless of gender—to participate, contribute, and grow together in a safe and supportive space.',
       icon: Heart,
       color: 'from-accent to-accent-glow'
     },
     {
       id: 4,
-      title: 'Excellence',
-      description: 'Promote academic and professional excellence through workshops, research opportunities, and continuous learning initiatives.',
+      title: 'Networking & Mentorship',
+      description: 'Connect with industry professionals and peers while gaining guidance, inspiration, and career support from experienced mentors.',
       icon: Target,
       color: 'from-primary to-secondary'
     }
@@ -65,9 +65,7 @@ const GoalsSection = () => {
               </span>
             </h3>
             <p className="text-foreground/80 text-lg font-light leading-relaxed">
-              To advance women in engineering by providing opportunities for professional development, 
-              technical excellence, and leadership growth while fostering an inclusive community that 
-              celebrates diversity and drives innovation in engineering solutions.
+              To support and uplift individuals in STEM—regardless of gender—through impactful events, mentorship, and opportunities that foster innovation, growth, and equality.
             </p>
           </div>
         </AnimatedSection>
@@ -111,13 +109,12 @@ const GoalsSection = () => {
                 </span>
               </h3>
               <p className="text-foreground/80 text-lg font-light leading-relaxed mb-6">
-                A world where women engineers are recognized as leaders in innovation, 
-                where gender equality in STEM is the norm, and where the next generation 
-                of young women see engineering as an exciting and accessible career path.
+                To build an inclusive and empowering community that encourages women and men alike to excel in engineering, technology, and leadership.
+
               </p>
               
               <div className="flex flex-wrap justify-center gap-4 mt-8">
-                {['Leadership', 'Innovation', 'Equality', 'Inspiration'].map((value, index) => (
+                {['Leadership', 'Innovation', 'Excellence', 'Empowerment'].map((value, index) => (
                   <span 
                     key={value}
                     className="px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-full text-primary font-medium text-sm tracking-tight"

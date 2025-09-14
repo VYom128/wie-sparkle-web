@@ -5,34 +5,34 @@ const AchievementsSection = () => {
   const achievements = [
     {
       id: 1,
-      title: 'Best Student Chapter 2023',
-      description: 'Recognized as the top IEEE WIE student chapter in the region for outstanding leadership and community impact.',
+      title: '🌍 IEEE Region 10 Brand Ambassador',
+      description: 'One of our students proudly represented us as an IEEE Region 10 Brand Ambassador. This prestigious role amplified our voice across India, showcasing the strength of our student branch.',
       icon: Trophy,
-      year: '2023',
+      year: '2024',
       color: 'from-primary to-primary-glow'
     },
     {
       id: 2,
-      title: 'Innovation Award',
-      description: 'Received the Innovation Excellence Award for our groundbreaking projects in renewable energy and AI.',
+      title: '🏅 IEEE ACEI Ambassadors',
+      description: 'Two of our exceptional members were selected as IEEE ACEI Entrepreneurship Ambassadors under Region 10. Their selection highlights our focus on innovation and entrepreneurial spirit within the WIE community.',
       icon: Star,
-      year: '2023',
+      year: '2025',
       color: 'from-secondary to-secondary-glow'
     },
     {
       id: 3,
-      title: 'Community Impact Recognition',
-      description: 'Honored for our mentorship program that supported 200+ young women entering STEM fields.',
+      title: '🎉 IEEE WIE Day 2025 Ambassadors',
+      description: 'Three of our dedicated students were chosen as IEEE WIE Day 2025 Ambassadors. This global recognition celebrates their active contribution to promoting women in engineering and leadership.',
       icon: Medal,
-      year: '2022',
+      year: '2025',
       color: 'from-accent to-accent-glow'
     },
     {
       id: 4,
-      title: 'Research Excellence',
-      description: 'Our research team won first place at the National Women in Engineering Research Symposium.',
+      title: '🎤 Hosted IEEE WIE Congress 2024',
+      description: 'We proudly hosted the IEEE WIE Congress 2024 under the Hyderabad Section at Anurag University, bringing together innovators and leaders from across the region.It was a milestone event filled with impactful sessions, collaboration, and empowerment.',
       icon: Crown,
-      year: '2022',
+      year: '2024',
       color: 'from-primary to-secondary'
     }
   ];
@@ -92,10 +92,10 @@ const AchievementsSection = () => {
         <AnimatedSection>
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {[
-              { label: 'Active Members', value: '150+' },
-              { label: 'Projects Completed', value: '50+' },
-              { label: 'Awards Won', value: '12' },
-              { label: 'Years Active', value: '8' }
+              { label: 'Total Attendees', value: '1034' },
+              { label: 'Total Events Hosted', value: '6+' },
+              { label: 'Awards Won', value: '6' },
+              { label: 'Years Active', value: '1+' }
             ].map((stat, index) => (
               <div key={stat.label} className="text-center">
                 <div className="glass-card rounded-xl p-6 group hover:scale-105 transition-all duration-300">

@@ -2,73 +2,95 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CalendarBlank, Clock, MapPin } from 'phosphor-react';
 import Navigation from '@/components/Navigation';
 
+import WieCongressMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/wie congress main pic.jpg';
+import WieCongress1 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/wie c.jpg';
+import WieCongress2 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/wie c1.jpg';
+import WieCongress3 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/wie c3.jpg';
+
+import InaugMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/inaug main.jpg';
+import Inaug1 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/inaug 2.jpg';
+import Inaug2 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/inaug 3.jpg';
+import Inaug3 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/inaug 4.jpg';
+
+import JobQuestMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/jobquest main pic.jpg';
+import JobQuest1 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/jobquest 1.jpg';
+import JobQuest2 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/jobquest 1.jpg';
+import JobQuest3 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/jobquest 3.png';
+
+import InnovateHerMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/InnovateHerMian.jpg';
+import InnovateHer1 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/InnovateHer.jpg';
+import InnovateHer2 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/InnovateHer2.jpg';
+import InnovateHer3 from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/InnovateHer3.jpg';
+
+
 const EventDetail = () => {
   const { id } = useParams();
 
   // Event data - in real app this would come from an API
   const events = {
     '1': {
-      title: 'Women in Tech Symposium 2024',
-      date: 'March 15, 2024',
-      time: '9:00 AM - 5:00 PM',
-      venue: 'Engineering Auditorium',
+      title: 'IEEE WIE Congress 2024',
+      date: 'November 23, 2024',
+      time: '9:00 AM - 4:00 PM',
+      venue: 'D-Block Auditorium, Anurag University',
       description: 'Join us for an inspiring day of keynote speeches, panel discussions, and networking opportunities with industry leaders and successful women engineers.',
-      fullDescription: `Our annual Women in Tech Symposium brings together the brightest minds in engineering and technology. This year's theme focuses on "Breaking Barriers, Building Futures" with sessions covering cutting-edge research, leadership development, and career advancement strategies.
-
-The symposium features keynote speakers from major tech companies, interactive workshops on emerging technologies, and unparalleled networking opportunities. Attendees will gain insights into the latest industry trends, connect with like-minded professionals, and leave inspired to drive innovation in their respective fields.`,
+      fullDescription: `The IEEE WIE Congress 2024 was successfully hosted by the IEEE WIE AG of Anurag University under the Hyderabad Section. This prestigious event brought together students, professionals, and leaders from various IEEE Student Branches for a day of knowledge exchange, leadership talks, and empowering workshops. With keynote sessions from industry experts, panel discussions on women in STEM, and hands-on activities, the congress served as a powerful platform to inspire and ignite innovation among participants.
+      
+The event encouraged inter-collegiate networking, promoted the core values of IEEE WIE, and celebrated the power of women in engineering. It concluded with enthusiastic feedback and a call to action for future collaborations.`,
       images: [
-        'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=400&h=300&fit=crop'
+        WieCongressMain,
+        WieCongress1,
+        WieCongress2,
+        WieCongress3
       ]
     },
     '2': {
-      title: 'Innovation Workshop Series',
-      date: 'March 22, 2024',
-      time: '2:00 PM - 6:00 PM',
-      venue: 'Innovation Lab, Room 301',
+      title: 'InnovateHer – Women’s Day Special 2024',
+      date: 'March 8, 2025',
+      time: '9:30 PM - 1:00 PM',
+      venue: 'G-Block Seminar Hall, Anurag University',
       description: 'Hands-on workshops covering emerging technologies including AI, IoT, and sustainable engineering practices. Perfect for students looking to expand their technical skills.',
-      fullDescription: `Our Innovation Workshop Series is designed to provide hands-on experience with the technologies shaping the future of engineering. Participants will work with state-of-the-art equipment and software under the guidance of industry experts and faculty members.
-
-The workshop covers practical applications of artificial intelligence in engineering, Internet of Things (IoT) device development, and sustainable engineering practices. Each session includes both theoretical foundations and practical implementation, ensuring participants leave with actionable skills and knowledge.`,
+      fullDescription: `Held on International Women’s Day, InnovateHer was a celebration of innovation, empowerment, and inclusivity. This unique event featured inspiring talks by women professionals, brainstorming activities, and fun challenges designed to ignite creativity and confidence among participants. It created a safe and supportive space for women to express their ideas, share stories, and learn from each other. 
+      
+The event also included a mini innovation pitch competition where participants showcased their solutions to real-world problems. It concluded with a reflection on the role of women in reshaping the future of technology and engineering.`,
       images: [
-        'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=400&h=300&fit=crop'
+        InnovateHerMain,
+        InnovateHer1,
+        InnovateHer2,
+        InnovateHer3
       ]
     },
     '3': {
-      title: 'Mentorship Program Launch',
-      date: 'April 5, 2024',
-      time: '6:00 PM - 8:00 PM',
-      venue: 'Student Center',
+      title: 'JobQuest – Aptitude Webinar',
+      date: 'February 28, 2025',
+      time: '1:30 PM - 3:45 PM',
+      venue: 'E-Block Auditorium, Anurag University',
       description: 'Launch event for our new mentorship program connecting students with industry professionals. Includes networking dinner and mentor-mentee matching.',
-      fullDescription: `The IEEE WIE Mentorship Program Launch marks the beginning of a transformative journey for engineering students. This comprehensive program pairs students with accomplished professionals who provide guidance, support, and insights into career development.
-
-The launch event features a networking dinner where participants can meet potential mentors, learn about program expectations, and begin building meaningful professional relationships. The program focuses on career development, technical skill enhancement, and leadership opportunities within the engineering field.`,
+      fullDescription: `CodeQuest was an interactive online webinar organized to strengthen students' aptitude skills crucial for placement drives. The session focused on topics like problem-solving techniques, logical reasoning, and shortcuts for quantitative aptitude, which are key components in most campus recruitment tests. Delivered by an expert in aptitude training, the webinar provided valuable tips, practice questions, and real-time problem-solving demonstrations. 
+      
+Students actively engaged in the session, clarified doubts, and gained confidence to approach competitive exams. The initiative was especially appreciated by final-year students preparing for upcoming job interviews.
+`,
       images: [
-        'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop'
+        JobQuestMain,
+        JobQuest1,
+        JobQuest2,
+        JobQuest3
       ]
     },
     '4': {
-      title: 'Engineering for Social Good',
-      date: 'April 18, 2024',
-      time: '1:00 PM - 4:00 PM',
-      venue: 'Conference Room B',
+      title: 'Inauguration Ceremony of IEEE WIE AG - AU',
+      date: 'June 19, 2024',
+      time: '10:00 PM - 4:00 PM',
+      venue: 'D-Block Seminar-Hall, Anurag University',
       description: 'Panel discussion on how engineering can address global challenges, featuring speakers from humanitarian organizations and social impact startups.',
-      fullDescription: `Engineering for Social Good explores how technical innovation can address pressing global challenges. This panel discussion brings together engineers working in humanitarian sectors, social impact startups, and NGOs to share their experiences and insights.
-
-The session covers topics including sustainable development, disaster relief engineering, accessible technology design, and ethical considerations in engineering practice. Attendees will learn about career opportunities in social impact engineering and how to apply their technical skills to create positive change in communities worldwide.`,
+      fullDescription: `On June 18, 2024, the IEEE WIE Affinity Group at Anurag University was officially inaugurated in a grand ceremony attended by students, faculty, and IEEE dignitaries. The event began with the lighting of the lamp followed by speeches from respected IEEE officials and faculty advisors who highlighted the vision and goals of IEEE WIE. 
+      
+The newly formed team was introduced, and a roadmap for upcoming activities was shared. The launch symbolized a commitment to creating opportunities, providing mentorship, and fostering a supportive environment for women in STEM. The event concluded with a networking session and cultural performances that added vibrancy to the celebration.`,
       images: [
-        'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop'
+        InaugMain,
+        Inaug1,
+        Inaug2,
+        Inaug3
       ]
     }
   };

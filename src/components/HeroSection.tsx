@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import Button from './Button';
 import AnimatedSection from './AnimatedSection';
+// Add your logo imports here
+// import leftLogo from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/src/assets/cropped_circle_image.png' // Update path as needed
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -19,6 +21,16 @@ const HeroSection = () => {
   return (
     <section id="home" className="min-h-screen relative flex items-center justify-center overflow-hidden">
       {/* Background Elements */}
+
+       {/* Logo containers */}
+    {/* <div className="absolute top-5 left-4 z-20">
+        <img 
+          src={leftLogo} 
+          alt="Left Logo" 
+          className="w-9 h-auto" // Increased size for better visibility
+        />
+      </div> */}
+
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-glass/20" />
       
       {/* Animated background orbs */}

@@ -1,43 +1,46 @@
 import AnimatedSection from './AnimatedSection';
 import { CalendarBlank, MapPin, Clock } from 'phosphor-react';
-
+import WieCongressMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/wie congress main pic.jpg';
+import InaugMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/inaug main.jpg';
+import JobQuestMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/jobquest main pic.jpg';
+import InnovateHerMain from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/wie website event pics/InnovateHerMian.jpg';
 const EventsSection = () => {
   const events = [
     {
       id: 1,
-      title: 'Women in Tech Symposium 2024',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop',
-      date: 'March 15, 2024',
-      time: '9:00 AM - 5:00 PM',
-      venue: 'Engineering Auditorium',
-      description: 'Join us for an inspiring day of keynote speeches, panel discussions, and networking opportunities with industry leaders and successful women engineers.'
+      title: 'IEEE WIE Congress 2024',
+      image: WieCongressMain,
+      date: 'November 23, 2024',
+      time: '9:00 AM - 4:00 PM',
+      venue: 'D-Block Auditorium, Anurag University',
+      description: 'IEEE WIE Congress 2024 was a flagship event hosted at Anurag University, uniting leaders and innovators across the Hyderabad Section. The event empowered students through impactful sessions, networking, and collaboration.'
     },
     {
       id: 2,
-      title: 'Innovation Workshop Series',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
-      date: 'March 22, 2024',
-      time: '2:00 PM - 6:00 PM',
-      venue: 'Innovation Lab, Room 301',
-      description: 'Hands-on workshops covering emerging technologies including AI, IoT, and sustainable engineering practices. Perfect for students looking to expand their technical skills.'
+      title: 'InnovateHer – Women’s Day Special 2024',
+      image: InnovateHerMain,
+      date: 'March 8, 2025',
+      time: '9:30 PM - 1:00 PM',
+      venue: 'G-Block Seminar Hall, Anurag University',
+      description: 'InnovateHer was organized on Women’s Day to honor, uplift, and engage women in STEM through inspiring sessions and interactive challenges. The event encouraged creativity and leadership among young women.'
     },
     {
       id: 3,
-      title: 'Mentorship Program Launch',
-      image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop',
-      date: 'April 5, 2024',
-      time: '6:00 PM - 8:00 PM',
-      venue: 'Student Center',
-      description: 'Launch event for our new mentorship program connecting students with industry professionals. Includes networking dinner and mentor-mentee matching.'
+      title: 'JobQuest – Aptitude Webinar',
+      image: JobQuestMain,
+      date: 'February 28, 2025',
+      time: '1:30 PM - 3:45 PM',
+      venue: 'E-Block Auditorium, Anurag University',
+      description: 'JobQuest was an online webinar focused on Quantitative Aptitude, tailored to help students enhance their placement preparation skills. It was an informative session guided by an experienced trainer.'
     },
     {
       id: 4,
-      title: 'Engineering for Social Good',
-      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop',
-      date: 'April 18, 2024',
-      time: '1:00 PM - 4:00 PM',
-      venue: 'Conference Room B',
-      description: 'Panel discussion on how engineering can address global challenges, featuring speakers from humanitarian organizations and social impact startups.'
+      title: 'Inauguration Ceremony of IEEE WIE AG - AU',
+      image: InaugMain,
+      date: 'June 19, 2024',
+      time: '10:00 PM - 4:00 PM',
+      venue: 'D-Block Seminar-Hall, Anurag University',
+      description: 'The inauguration ceremony of the IEEE WIE AG at Anurag University was held on June 18, 2024. It marked the beginning of an empowering journey to uplift and support women in engineering.'
     }
   ];
 
@@ -48,7 +51,7 @@ const EventsSection = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-light tracking-tighter mb-4">
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Upcoming Events
+                Events Organized
               </span>
             </h2>
             <p className="text-foreground/70 text-lg font-light max-w-2xl mx-auto">

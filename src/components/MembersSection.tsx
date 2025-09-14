@@ -1,167 +1,182 @@
-import AnimatedSection from './AnimatedSection';
-import HorizontalScrollMembers from './HorizontalScrollMembers';
+import AnimatedSection from "./AnimatedSection";
+import HorizontalScrollMembers from "./HorizontalScrollMembers";
+import AnushaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/anusha.jpg";
+import RakshithImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/rakshith mtt.jpg";
+import SanjanaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/Sanjana.jpg";
+import GagandeepImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/Gagandeep.jpg";
+import KeerthiImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/keerthi mtt.jpg";
+import TripuraImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/tsr mtt.jpg";
+import BindhuImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/bindu mtt.jpg";
+import SahitiImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/sahiti mtt.jpg";
+import HarshithaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/harshitha mtt.jpg";
+import AbhishekImage from 'C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/abhishek.jpg'
 
+// Import statements for team members
+import LaasyaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/laasya mtt.jpg";
+import TharunImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/tarun.jpg";
+import SnehaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/sneha mtt.jpg";
+import SupriyaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/supriya.jpg";
+import BhargavImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/bhargav.jpg";
+import VyomakeshImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/vyom.jpg";
+import ShashankImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/shashank.jpg";
+import AdityaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/aditya.jpg";
+import SriHarshithaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/harshitha mtt.jpg";
+import SaashaImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/saasha mtt.jpg";
+import VipulImage from "C:/Users/vyoma/Desktop/VScode/IEEE WIE WEBSITE MAIN/wie-sparkle-web/images/meet the team pics individual/meet the team pics individual/vipul mtt.jpg";
+
+// ...existing code...
 const MembersSection = () => {
-
   // Mock data - in real app this would come from an API
   const teamLeads = [
     {
       id: 1,
-      name: 'Emily Chen',
-      role: 'President',
-      description: 'Computer Engineering major with passion for AI and robotics. Leading IEEE WIE initiatives for the past 2 years.',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b647?w=400&h=400&fit=crop&crop=face'
+      name: "K.N.L.Anusha",
+      role: "Chair",
+      description: "Inspiring excellence, shaping the future.",
+      image: AnushaImage,
     },
     {
       id: 2,
-      name: 'Maria Rodriguez',
-      role: 'Vice President',
-      description: 'Electrical Engineering student specializing in renewable energy systems and sustainable technology.',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face'
+      name: "Rakshith",
+      role: "Vice Chair",
+      description:
+        "Guiding progress, one step at a time.",
+      image: RakshithImage,
     },
     {
       id: 3,
-      name: 'Aisha Patel',
-      role: 'Secretary',
-      description: 'Software Engineering major focused on cybersecurity and women in tech advocacy.',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face'
+      name: "Sanjana Maurya",
+      role: "Secretary",
+      description:
+        "Turning ideas into action, words into results.",
+      image: SanjanaImage,
     },
     {
       id: 4,
-      name: 'Sarah Kim',
-      role: 'Treasurer',
-      description: 'Biomedical Engineering student with expertise in medical device development and healthcare innovation.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face'
+      name: "Gagandeep Kaur",
+      role: "Treasurer",
+      description:
+        "Where careful planning meets bold aspirations.",
+      image: GagandeepImage,
     },
     {
-      id: 5,
-      name: 'Rachel Thompson',
-      role: 'Technical Director',
-      description: 'Mechanical Engineering major specializing in automation and smart manufacturing systems.',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face'
+      id: 4,
+      name: "Abhishek",
+      role: "Web Master",
+      description:
+        "Bringing ideas to life in the digital realm.",
+      image: AbhishekImage,
     },
     {
       id: 6,
-      name: 'Jennifer Walsh',
-      role: 'Research Coordinator',
-      description: 'Chemical Engineering student focusing on sustainable materials and environmental technology.',
-      image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop&crop=face'
+      name: "Keerthi Yabaluri",
+      role: "PR & Branding Lead",
+      description:
+        "The voice of our club, crafting connections that resonate far beyond words.",
+      image: KeerthiImage,
     },
     {
       id: 7,
-      name: 'Diana Foster',
-      role: 'External Relations Head',
-      description: 'Industrial Engineering major with experience in supply chain optimization and project management.',
-      image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&crop=face'
+      name: "Tripura Simha Reddy",
+      role: "Designing Lead",
+      description:
+        "I am not Cunning, My Gole is to be Ontrepenure",
+      image: TripuraImage,
     },
     {
       id: 8,
-      name: 'Amanda Liu',
-      role: 'Innovation Lead',
-      description: 'Aerospace Engineering student passionate about space technology and satellite communications.',
-      image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=400&fit=crop&crop=face'
+      name: "Bindhu Gandrakota",
+      role: "Social Media Lead",
+      description:
+        "Curators of digital presence, sparking conversations in the virtual world.",
+      image: BindhuImage,
     },
     {
       id: 9,
-      name: 'Michelle Davis',
-      role: 'Academic Coordinator',
-      description: 'Nuclear Engineering major specializing in reactor design and nuclear safety protocols.',
-      image: 'https://images.unsplash.com/photo-1590086782792-42dd2350140d?w=400&h=400&fit=crop&crop=face'
+      name: "P.Sahiti Reddy",
+      role: "Technical Lead",
+      description:
+        "The backbone of innovation, ensuring seamless experiences powered by expertise.",
+      image: SahitiImage,
     },
     {
       id: 10,
-      name: 'Lisa Rodriguez',
-      role: 'Community Outreach Director',
-      description: 'Civil Engineering student focused on sustainable infrastructure and smart city development.',
-      image: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=400&fit=crop&crop=face'
-    }
+      name: "Depa Harshitha",
+      role: "Content Writing Lead",
+      description:
+        "Wordsmiths weaving stories, creating content that inspires action and ignites curiosity.",
+      image: HarshithaImage,
+    },
   ];
 
+  // Updated members array with imported images
   const members = [
     {
       id: 11,
-      name: 'Jessica Liu',
-      role: 'Event Specialist',
-      image: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=300&h=300&fit=crop&crop=face'
+      name: "V.Laasya Reddy",
+      role: "Social Media Team Member",
+      image: LaasyaImage,
     },
     {
       id: 12,
-      name: 'Rachel Smith',
-      role: 'Workshop Assistant',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&crop=face'
+      name: "V.Tharun Reddy",
+      role: "Social Media Team Member",
+      image: TharunImage,
     },
     {
       id: 13,
-      name: 'Zara Ahmed',
-      role: 'Marketing Assistant',
-      image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=300&fit=crop&crop=face'
+      name: "Y.Sneha",
+      role: "PR &Branding Team Member",
+      image: SnehaImage,
     },
     {
       id: 14,
-      name: 'Nicole Johnson',
-      role: 'Tech Support',
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face'
+      name: "K.Supriya",
+      role: "PR &Branding Team Member",
+      image: SupriyaImage,
     },
     {
       id: 15,
-      name: 'Sophia Kim',
-      role: 'Design Assistant',
-      image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=300&h=300&fit=crop&crop=face'
+      name: "Bhargav Nune",
+      role: "Technical Team Member",
+      image: BhargavImage,
     },
     {
       id: 16,
-      name: 'Maya Rodriguez',
-      role: 'Research Assistant',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face'
+      name: "T.Vyomakesh",
+      role: "Designing Team Member",
+      image: VyomakeshImage,
     },
     {
       id: 17,
-      name: 'Anna Thompson',
-      role: 'Social Media Coordinator',
-      image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300&h=300&fit=crop&crop=face'
+      name: "P.Shashank Reddy",
+      role: "Designing Team Member",
+      image: ShashankImage,
     },
     {
       id: 18,
-      name: 'Sarah Williams',
-      role: 'Community Assistant',
-      image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&h=300&fit=crop&crop=face'
+      name: "K.Aditya",
+      role: "Designing Team Member",
+      image: AdityaImage,
     },
     {
       id: 19,
-      name: 'Lisa Chang',
-      role: 'Program Coordinator',
-      image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=300&h=300&fit=crop&crop=face'
+      name: "Balsuguri Sri Harshitha",
+      role: "Content Writing Team Member",
+      image: SriHarshithaImage,
     },
     {
       id: 20,
-      name: 'Emma Davis',
-      role: 'Outreach Coordinator',
-      image: 'https://images.unsplash.com/photo-1590086782792-42dd2350140d?w=300&h=300&fit=crop&crop=face'
+      name: "A.Saasha",
+      role: "Content Writing Team Member",
+      image: SaashaImage,
     },
     {
       id: 21,
-      name: 'Priya Sharma',
-      role: 'Project Assistant',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face'
+      name: "G.Vipul Karthik Reddy",
+      role: "PR & Branding Team Member",
+      image: VipulImage,
     },
-    {
-      id: 22,
-      name: 'Jennifer Lee',
-      role: 'Content Creator',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b647?w=300&h=300&fit=crop&crop=face'
-    },
-    {
-      id: 23,
-      name: 'Victoria Chen',
-      role: 'Finance Assistant',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face'
-    },
-    {
-      id: 24,
-      name: 'Alexis Park',
-      role: 'Operations Support',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face'
-    }
   ];
 
   return (
@@ -175,7 +190,7 @@ const MembersSection = () => {
               </span>
             </h2>
             <p className="text-foreground/70 text-lg font-light max-w-2xl mx-auto">
-              Meet the passionate women leading IEEE WIE and driving innovation
+              Meet the passionate members leading IEEE WIE and driving innovation
             </p>
           </div>
         </AnimatedSection>
